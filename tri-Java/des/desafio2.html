@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Desafio 2 RS</title>
+        <link rel="stylesheet" type="text/css" href="../css/tri1.css">
+        
+    </head>
+    <body>
+        <h1>Crie uma função que dado um intervalo (entre x e y) exiba todos número pares:</h1>
+        <h3>function pares(x, y){
+                // código aqui
+            }
+
+            pares(32, 321);</h3>
+        <br>
+        <br>
+        <ul id="list"></ul>
+    </body>
+    <script>
+        function even(a, b) {
+            var even = [];        
+            for(var i=a; i<=b ;i++){
+                if(i%2==0)
+                even.push(i); 
+            }
+            return even.toString();
+        }
+        var result = even(1, 500);
+        var res = result.split(",");
+
+        res.forEach(function(num){
+            var el = document.createElement("li");
+            el.innerHTML = num;
+            document.getElementById("list").appendChild(el);
+        })
+    </script>
+</html>

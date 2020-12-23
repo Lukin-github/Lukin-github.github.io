@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Desafio 1 RS</title>
+        <link rel="stylesheet" type="text/css" href="../css/tri1.css">
+        
+    </head>
+    <body>
+        <h1>Crie uma função que dado o objeto a seguir:</h1>
+        <h3>var endereco = {
+                rua: "Rua dos pinheiros",
+                numero: 1293,
+                bairro: "Centro",
+                cidade: "São Paulo",
+                uf: "SP"
+            };</h3>
+        <h1>Retorne o seguinte conteúdo:</h1>
+        <h3>O usuário mora em São Paulo / SP, no bairro Centro, na rua "Rua dos Pinheiros" com nº 1293.</h3>
+        <br>
+        <br>
+        <p id="phr"></p>
+
+    </body>
+    <script>
+            var endereco = {
+                rua: "Rua dos pinheiros",
+                numero: 1293,
+                bairro: "Centro",
+                cidade: "São Paulo",
+                uf: "SP"
+            };
+            var phrase = "O usuário mora em "+endereco.cidade+" / "+endereco.uf+", no bairro "+endereco.bairro+", na "+endereco.rua+" com n° "+endereco.numero+".";
+            document.getElementById("phr").innerHTML = phrase;
+    </script>
+</html>

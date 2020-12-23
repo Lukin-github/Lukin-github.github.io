@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"       >
+        <title>Desafio 4 RS</title>
+        <link rel="stylesheet" type="text/css" href="../css/tri1.css">
+    </head>
+    <body>
+        <input type="text" name="name" id='text'>
+        <button onclick="add();">Add</button>
+        <ul id= 'a'></ul>
+    </body>
+    <script>
+        var n = ["Diego", "Gabriel", "Lucas"];        
+        function add(){
+        	var e = document.getElementById('a');
+        	var input = document.getElementById('text').value;
+        	for (i of n){
+                var addLI = document.createElement('li');
+                var text = document.createTextNode(i);
+                addLI.appendChild(text);
+        	    e.appendChild(addLI);
+        	}
+        	var addLI = document.createElement('li');
+        	var text = document.createTextNode(input);
+        	addLI.appendChild(text);
+        	e.appendChild(addLI);
+            n.splice(0,3);
+        }
+    </script>
+</html>

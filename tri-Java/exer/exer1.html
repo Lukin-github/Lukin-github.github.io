@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício 1</title>
+        <link rel="stylesheet" type="text/css" href="../css/tri1.css">
+        <script>
+            function sum(num1,num2){
+                var a = parseInt(num1);
+                var b = parseInt(num2);
+                return a+b;
+            }
+            function showSum(){
+                var ch1 = document.getElementById("n1").value;
+                var ch2 = document.getElementById("n2").value;
+                var resultat= sum(ch1,ch2);
+                alert("A soma entre "+ch1+" e "+ch2+" é "+resultat);
+            }    
+        </script>
+    </head>
+    <body>
+        <h1>Soma de dois números:</h1>
+        <form>
+            <input type="text" id="n1" placeholder="première">
+            <input type="text" id="n2" placeholder="deuxième">
+            <button onclick="showSum()">Calculer</button>
+        </form>
+        <br>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício 5</title>
+        <link rel="stylesheet" type="text/css" href="../css/tri1.css">
+        <script>
+            function result(n1, n2){
+                var r=n1*(n2/100);
+                var res=n1+r;
+                return res;
+            }
+            function change(){
+                var sal=document.getElementById("sal").value;
+                var ch=document.getElementById("ch").value;
+                sal=parseFloat(sal);
+                ch=parseFloat(ch);
+                var res=result(sal,ch);
+                alert("O seu novo salário é " + res);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Reajuste de Salário</h1>
+        <form>
+            <input type="text" id="sal" placeholder="Salario">
+            <input type="text" id="ch" placeholder="Reajuste">
+            <button onclick="change()">Calculer</button>
+        </form>
+        <br>
+    </body>
+</html>

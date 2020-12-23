@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"       >
+        <title>Desafio 2 RS</title>
+        <link rel="stylesheet" type="text/css" href="../css/tri1.css">
+    </head>
+    <body>
+        <button onclick="colorfulSQRS();">Criar quadrados (coloridos)</button>
+        <div id= 'a'>
+    </body>
+    <script>
+        function colorfulSQRS(){
+        	var sqrs = document.createElement('div');
+        	sqrs.style.width = '100px';
+        	sqrs.style.height = '100px';
+        	sqrs.style.backgroundColor = '#FF0000';
+        	sqrs.style.marginBottom = '1px'
+        	sqrs.style.display = 'inline-block';
+        	var res = document.getElementById('a');
+        	sqrs.onmouseover = function(){sqrs.style.backgroundColor=getRandomColor();}
+        	res.appendChild(sqrs);
+        }       
+        function getRandomColor() {
+        	var letters = '0123456789ABCDEF';
+        	var color = '#';
+        	for (var i = 0; i < 6; i++){color+=letters[Math.floor(Math.random()*16)];}
+        	return color;
+        }        
+    </script>
+</html>

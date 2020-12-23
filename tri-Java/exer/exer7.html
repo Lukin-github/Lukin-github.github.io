@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercício 8</title>
+        <link rel="stylesheet" type="text/css" href="../css/tri1.css">
+        <script>
+            function retorno(){
+                var numCarros=document.getElementById("numC").value;
+                var totalVendas=document.getElementById("totV").value;
+                var salarioFixo=document.getElementById("salF").value;
+                var bonusCarro=document.getElementById("bonC").value;
+                numCarros=parseInt(numCarros);
+                totalVendas=parseFloat(totalVendas);
+                salarioFixo=parseFloat(salarioFixo);
+                bonusCarro=parseFloat(bonusCarro);
+                var res=calcSal(numCarros,totalVendas,salarioFixo,bonusCarro);
+                alert("O salário final é " + res);
+            }
+            function calcSal(numCarros,totalVendas,salarioFixo,bonusCarro){
+                var s1=bonusCarro*numCarros;
+                var s2=(totalVendas*0.05);
+                var salarioFinal=salarioFixo+s1+s2;
+                return salarioFinal;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Preço de fábrica do carro</h1>
+        <form>
+            <input type="text" id="numC" placeholder="Número de carros vendidos"><br>
+            <input type="text" id="totV" placeholder="Valor total de suas vendas"><br>
+            <input type="text" id="salF" placeholder="Salário fixo"><br>
+            <input type="text" id="bonC" placeholder="Valor que recebe por carro vendido">
+            <br>
+            <button onclick="retorno()">Calculer</button>
+        </form>
+        <br>
+    </body>
+</html>

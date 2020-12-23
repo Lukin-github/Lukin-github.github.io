@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"       >
+        <title>Desafio 3 RS</title>
+        <link rel="stylesheet" type="text/css" href="../css/tri1.css">
+    </head>
+    <body>
+        <button onclick="funcao();">Executar</button>
+        <ul id= 'a'></ul>
+    </body>
+    <script>
+        function funcao(){
+        	var n = ["Rafael", "Nicollas", "Victor", "Filipe"];
+            var e = document.createElement('ul');
+        	e.style.display = 'inline-block';
+        	for (i of n){
+                var addLI = document.createElement('li');
+                var text = document.createTextNode(i);
+                addLI.appendChild(text);
+                e.appendChild(addLI);
+        	}
+        	var res = document.getElementById('a');
+        	res.appendChild(e);
+        }       
+    </script>
+</html>
