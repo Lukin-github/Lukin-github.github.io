@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Simulação 1</title>
+        <link rel="stylesheet" type="text/css" href="../css/tri1.css">
+    </head>
+    <body>
+        <p>Transformação mol para massa e vice-versa:</p>
+        <h1>Cobalto (Co)</h1>
+
+        <input type="number" name="valor" id='val'>
+        <button onclick="gramToM();">Grama -> Mol</button>
+        <button onclick="molToG();">Mol -> Grama</button>
+
+        <p id="cal"></p>
+        <p id="res"></p>
+    </body>
+    <script>
+        function molToG(){
+	    	var mol=document.getElementById('val').value;
+            var gr=mol*59.0;
+            
+            var res=mol+" mol(s) de Cobalto equivale(m) a: "+gr+"g.";
+            var calc=gr+"(grama(s))="+mol+"(mol(s))*59g.";
+
+            document.getElementById("cal").innerHTML = calc;
+		    document.getElementById("res").innerHTML = res;
+	    }
+        function gramToM(){
+	    	var gr=document.getElementById('val').value;
+            var mol=gr/59.0;
+            
+            var res=gr+" grama(s) de Cobalto equivale(m) a: "+mol+" mol(s).";
+            var calc=mol+"(mols(s))="+gr+"(grama(s))/59g.";
+
+            document.getElementById("cal").innerHTML = calc;
+		    document.getElementById("res").innerHTML = res;
+	    }
+    </script>
+</html>

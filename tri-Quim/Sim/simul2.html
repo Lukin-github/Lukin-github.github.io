@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Simulação 2</title>
+        <link rel="stylesheet" type="text/css" href="../css/tri1.css">
+    </head>
+    <body>
+        <p></p>
+        <h1>Água para átomos de hidrogênio e oxigênio</h1>
+
+        <input type="number" name="valor" id='val'>
+        <button onclick="crr();">Ir!</button>
+
+        <p id="cal"></p>
+        <p id="res"></p>
+    </body>
+    <script>
+        function crr(){
+            var gr=document.getElementById("val").value;
+            var mH2O=gr/18.0;
+            
+            var at1=(mH2O/2)*6*Math.pow(10,23);
+            var at2=mH2O*6*Math.pow(10,23);
+
+            var res=at1+" átomos de O2 e "+at2+" átomos de H2.";
+            var cal="<br>Grama para mol: 18g -> 1 mol de H2O <br>"+gr+" grama(s) -> "+mH2O+" mols.<br><br><b>Para o oxigênio:</b> <br><br>1: Checkar proporção: 0,5 (O2) para 1 (H2O). <br> ...e realizar a Regra de três: 0,5(O2) está para 1(H2O) assim como X(O2) está para "+mH2O+"(H2O); <br>Logo, X é igual a "+mH2O*0.5+".<br><br> 2: Conversão para átomos: <br> 1 mol está para 6x10²³ átomos assim como "+mH2O*0.5+"mol está para X átomos de O2. <br> Logo, X é igual a "+at1+".<br><br><b> E o mesmo com H2:</b> <br> <br> 1: Checkar a proporção: 1(H2O) para 1(H2). <br> ...e realizar a regra de três: 1(H2) está para 1(H2O) assim como X(H2) está para "+mH2O+"H2O. <br> Logo, X é igual a "+mH2O+".<br><br>2: Conversão para átomos: <br> 1 mol está para 6x10²³ átomos assim como "+mH2O+" está para X átomos de H2. <br> Logo, X é igual a "+at2+" átomos.<br><br><br>---------------------------------------------------<br><br>";
+            
+            document.getElementById("cal").innerHTML=cal;
+            document.getElementById("res").innerHTML=res;
+        }
+    </script>
+</html>

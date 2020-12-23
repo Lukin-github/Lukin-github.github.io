@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Simulação 3</title>
+        <link rel="stylesheet" type="text/css" href="../css/tri1.css">
+    </head>
+    <body>
+        <h1>Correlação do H2O</h1>
+        <p>Meio mol de O2 e um de H2 para H2O</p>
+
+        <input type="number" name="valor1" id='mO2'>
+        <input type="number" name="valor2" id='mH2'>
+        <button onclick="lim();">Achar!</button>
+
+        <p id="res"></p>
+    </body>
+    <script>
+        function lim(){
+            var O=document.getElementById("mO2").value;
+            var H=document.getElementById("mH2").value;
+            var gH=parseFloat(H);
+            var gO=O*16.0;
+            var r=8*gH;
+
+            if(r>gO)
+                var res="O reagente limitante é o O2, numa quantidade de "+gO+" gramas e a quantidade de produto é de "+O+" H2O (mols)";
+            else
+                if(O==H/2)
+                    var res="Não há reagente limitante.";
+                else
+                    var res="O reagente limitante é o H2, numa quantidade de "+gH+" gramas e a quantidade de produto é de "+H*0.5+" H2O (mols)";
+                
+
+            document.getElementById("res").innerHTML=res;
+        }
+    </script>
+</html>
