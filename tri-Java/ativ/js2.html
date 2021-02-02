@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AaaAaa</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var gls=[
+				{"id": 1, "termo": "W3C", "defin": "World Wide Web Consortium – escritório responsável por desenvolver normas técnicas para a Internet", "autor": "José Borges", "datCr": "2015-04-01"},
+				{"id": 2, "termo": "HTML","defin": "HyperText Markup Language – linguagem de marcação utilizada para estruturar páginas web","autor": "Pedro Silva", "datCr": "2017-05-12"},
+				{"id": 3, "termo": "CSS","defin": "Cascade Style Sheet – Folhas de estilo utilizadas para configurar a visualização de  páginas web.","autor": "Maria Machado","datCr": "2018-10-11"}
+			];
+
+			$(gls).each(function(idx,trm){
+				let tit=trm.termo;
+				$("#trm").append($("<li>").text(tit).attr("value", idx))
+
+				$("#trm").on("click","li",function(){
+					let id=$(this).val();
+						$("#termo").text(gls[id].termo);
+						$("#defin").text(gls[id].defin);
+						$("#autor").text(gls[id].autor);
+						$("#datCr").text(gls[id].datCr);
+				})
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<h1>Glossário</h1>
+	<p> Clique nos termos que você deseja conhecer!</p>
+	
+	<ul id="trm"></ul>
+	
+	<p id=termo></p>
+	<p id=defin></p>
+	<p id=autor></p>
+	<p id=datCr></p>
+
+</body>
+</html>

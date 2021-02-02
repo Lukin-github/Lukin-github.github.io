@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AaaAaa</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css.css" />
+	<script>
+		$(function(){
+			var acervoVet=new Array();
+			$("#bt").click(function(){
+				let tit=$("#title").val();
+				let des=$("#descr").val();
+				let gen=$("#gendr").val();
+				let aut=$("#autor").val();
+
+				$("#acervo").append($("<tr>").addClass("bk")
+					.append($("<td>").text(tit)).addClass("title")
+					.append($("<td>").text(des)).addClass("descr")
+					.append($("<td>").text(gen)).addClass("gendr")
+					.append($("<td>").text(aut)).addClass("autor")
+					.append($("<td>").append($("<img height=10px>").attr('src','lixeira.png'))));
+				$("#title").val("");
+				$("#descr").val("");
+				$("#gendr").val("");
+				$("#autor").val("");
+			})
+
+			$("input[name=salvar_bd]").click(function(){
+				$('.livro').each(function (idx, obj){
+					let title=$(obj).children("td:nth-child(1)").text();
+					let descr=$(obj).children("td:nth-child(2)").text();
+					let gendr=$(obj).children("td:nth-child(3)").text();
+					let autor=$(obj).children("td:nth-child(4)").text();
+
+					var bk={"title":title,"descr":descr,"gendr":gendr,"autor":autor};
+
+					acervoVet.push(bk);
+
+					$("input[name=acervo_post]").val(JSON.stringify(acervoVet));
+
+					console.log(acervoVet);
+				});
+			});
+
+			$("#acervo").on("click","img",function(){$(this).parents("#acervo tr").remove();})
+		})
+	</script>
+</head>
+
+<body>
+
+	<fieldset>
+		<legend>Cadastro de livros</legend>
+
+		<input type="text" id="title" placeholder="Título"><br>
+
+		<textarea id="descr"></textarea><br>
+
+		<select id="gendr">
+			<option value="Ficção">Ficção</option>
+			<option value="Drama">Drama</option>
+			<option value="Terror">Terror</option>
+			<option value="Romance">Romance</option>
+			<option value="Técnico">Técnico</option>
+		</select><br>
+
+		<input type="text" id="autor" placeholder="Autor"><br>
+
+		<button id="bt">Adicionar à lista.</button>
+	</fieldset>
+
+	<h1>Catálogo</h1>
+
+	<table id="acervo">
+		<tr>
+			<th>Título</th>
+			<th>Descrição</th>
+			<th>Gênero</th>
+			<th>Autor</th>
+			<th></th>
+		</tr>
+	</table><br>
+
+	<form action="https://rafaelescalfoni.net/web/livros.php" method="post">
+		<input type="hidden" name="acervo_post">
+		<input type="submit" value="Salvar no BD" name="salvar_bd">
+	</form>
+
+</body>
+</html>
