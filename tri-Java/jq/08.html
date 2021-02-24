@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#d").click(function(){
+                let f1=$("#f1").val();
+                let f2=$("#f2").val();
+
+                if (f1=="" || f2==0){
+                    $("#t1").text("Insira uma data válida")
+                }else{
+                    let d1=f1.substr(8, 2);
+                    let a1=f1.substr(0, 4);
+                    let m1=f1.substr(5, 2);
+                    let d2=f2.substr(8, 2);
+                    let a2=f2.substr(0, 4);
+                    let m2=f2.substr(5, 2);
+                    const now=new Date(a1,m1-1,d1);
+                    const past=new Date(a2,m2-1,d2);
+                    const diff=Math.abs(now.getTime()-past.getTime());
+                    const days=Math.ceil(diff/(1000*3600*24*7)); 
+                    $("#t1").text("A diferença de dias entre "+d1+"/"+m1+"/"+a1+" e "+d2+"/"+m2+"/"+a2+" é de "+days+" semanas.");
+                    $("#f1").val("");
+                    $("#f2").val("");
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <h4>Distância entre datas:</h4>
+    <input type="date" id="f1">
+    <input type="date" id="f2">
+    <button id="d">Enviar</button>
+    <p id="t1"></p>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+
+    <script>
+        $(function(){
+            $("#d").click(function(){
+                let f=$("#f").val();
+                if(f!=""){
+                    let d=f.substr(8, 2);
+                    let a=f.substr(0, 4);
+                    let m=f.substr(5, 2);
+                    var ms=""
+                    switch(m){
+                        case '01': ms = "janeiro"; break;
+                        case '02': ms = "fevereiro"; break;
+                        case '03': ms = "março"; break;
+                        case '04': ms = "abril"; break;
+                        case '05': ms = "maio"; break;
+                        case '06': ms = "junho"; break;
+                        case '07': ms = "julho"; break;
+                        case '08': ms = "agosto"; break;
+                        case '09': ms = "setembro"; break;
+                        case '10': ms = "outubro"; break;
+                        case '11': ms = "novembro"; break;
+                        case '12': ms = "dezembro"; break;
+                    }
+                    $("#f").val("");
+                    $("#t1").text("A data "+d+"/"+m+"/"+a+" em extenso: "+d+" de "+ms+" de "+a);
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <h4>Datas por extenso:</h4>
+    <input type="date" id="f">
+    <button id="d">Enviar</button>
+    <p id="t1"></p>
+</body>
+
+</html>

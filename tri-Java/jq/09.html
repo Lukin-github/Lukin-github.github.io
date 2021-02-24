@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+
+    <script>
+        var lower=/[a-z]/;
+        var upper=/[A-Z]/;
+        var nums=/[1-9]/;
+        var spec=/[@#!$%&*()-+.,=]/;
+        $(function(){
+            $("#f").keyup(function(){
+                if ($("#f").val() == ""){
+                    $("#t1").text("");
+                    $("#t1").css('color', 'black');
+                }
+            })
+
+            $("#s").click(function(){
+                let f=$("#f").val();
+                let res="";
+
+                if ($("#f").val()=="") {
+                    $("#t1").text("Insira uma senha");
+                    $("#t1").css('color', 'black');
+                }
+
+                if (lower.test(f) || upper.test(f)){
+                    $("#t1").text("Fraca");
+                    $("#t1").css('color','red');
+                }
+
+                if (lower.test(f) && upper.test(f) && nums.test(f)){
+                    $("#t1").text("Média");
+                    $("#t1").css('color','orange');
+                }
+
+                if (lower.test(f) && upper.test(f) && nums.test(f) && spec.test(f)){
+                    $("#t1").text("Forte");
+                    $("#t1").css('color','green');
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <h4>Senha é forte?</h4>
+    <input type="password" id="f">
+    <button id="s">Enviar</button>
+    <p id="t1"></p>
+</body>
+
+</html>
