@@ -1,0 +1,97 @@
+    .imagem{
+        width: 60%;
+        text-align: center;
+        height:30%;
+    }
+    .catalogo{
+		max-width:30%;
+		max-height: 480px;
+  		padding: 35px;
+        margin-right: 0.3%;
+  		margin-top: 5px;
+  		box-sizing: border-box;
+  		margin-bottom: 10px;
+  		background-color: #F1948A;
+  		display: inline-table;
+        transition: 0.1s;
+  	}
+    .catalogo:hover{
+        background-color: #F1C40F;
+        transform: scale(1.2);
+        transition: 0.2s;
+        box-shadow: 20px 20px 100px 20px rgba(0,0,0,1);
+        text-size-adjust: 14px !important;
+    }
+  	.descr{
+        size:0;
+    }
+	h1.titulo{
+		color: #900C3F;
+        text-transform: uppercase;
+        text-align: center;
+        margin: 0;
+        height: 15%;
+        width:100%;
+
+	}
+    .header{
+        background-color: #FFB300;
+        color: #900C3F;
+        text-align: center;
+        margin: 0 !important;
+        height: 15%;
+        width:100%;
+        font-size: 5em;
+
+    }
+    h2.header{
+        margin: 0 !important;
+    }
+	p, h1, h4, li{
+		color: #581845;
+        size: 0;
+	}
+	.classificacao{
+		width: 6%;
+ 		height: 6%;
+	}
+	.rate{
+		width: 35%;
+ 		height: 20%;
+ 		margin-left: 15px;	
+	}
+    .rate:hover{
+        mark: black;
+    }
+	.resumo{
+		font-size: 16px;
+		font-weight: bold;
+	}
+	.generos{
+		font-size: 12.5px;
+	}
+	.elenco{
+		font-size: 14px;
+	}
+	.semel{
+		display: inline-block;
+		font-size: 14px;
+	}
+	.titulossemelhantes{
+		font-size: 15px;
+		margin-bottom: 1px;
+        
+	}
+    .principal{
+        text-align: center;
+    }
+	body{
+		background-image: url("./img/papel.jpg");
+		background-size: 100%;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+        margin: 0;
+    }
+    h2{
+        margin:0 !important;
+    }
