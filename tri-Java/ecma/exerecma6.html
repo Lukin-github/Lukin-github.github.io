@@ -1,0 +1,112 @@
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Exercícios</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Lab EcmaScript 6</h1>
+
+    <div id="e1">
+        <h3>Exer. 1</h3>
+    </div>
+
+    <section id="e2">
+        <h3>Exer. 2</h3>
+        <p>Insira o número de posições a ser exibido:</p>
+        <input type="text" id="posic">
+        <button onclick="fib()">Mostrar</button>
+    </section>
+
+    <section id="e3">
+        <h3>Exer. 3</h3>
+    </section>
+</body>
+<script>
+    function adicTexto(t,id){
+        var node=document.createElement("p");
+        var textnode=document.createTextNode(t);
+        node.appendChild(textnode);
+        document.getElementById(id).appendChild(node);
+    }
+
+    let array=[7,3,-2,64,230,5,-25,100,64,3];
+
+    adicTexto("Array: "+array.join(', '),"e1");
+
+    function menor(a){
+        let nMe=a[0];
+        a.forEach(function(n){
+            if(n<nMe)
+                nMe=n;
+        });
+        adicTexto("Menor número: "+nMe, "e1");    
+    }menor(array);
+
+    function maior(a){
+        let nMa=a[0];
+        a.forEach(function(n){
+            if(n>nMa)
+                nMa=n;
+        });
+        adicTexto("Maior número: "+nMa, "e1");
+    }maior(array);
+
+    function unicos(a){
+        let arrayReps=a.filter(function(n,i){return a.indexOf(n)===i;});
+        adicTexto("Array, exceto os números repetidos: "+arrayReps.join(', '),"e1");
+    }unicos(array);
+
+    function ordenar(a){
+        let o=a.sort(function(n1, n2){
+            if(n1>n2)
+                return 1;
+            else
+                return -1;
+        return 0;
+        });
+        adicTexto("Array em ordem crescente: "+o.join(', '),"e1");
+    }ordenar(array);
+
+    function fib(){
+        let ps=parseInt(document.getElementById("posic").value);
+        let sq=new Array();
+        for (let i=0;i<ps;i++){
+            if(i==0)
+                n=0;
+            else if(i==1)
+                n=1;
+                else if(i==2)
+                    n=1;
+                    else
+                        n=sq[i-1]+sq[i-2];
+            sq.push(n);
+        }adicTexto("Fibonacci com "+ps+" números: "+sq.join(', '),"e2");
+    }
+
+    const lst=[1, 2, 3, 4, 5, 6];
+
+    adicTexto("Lista: "+lst.join(', '),"e3");
+
+    function dobro(list){
+        let lstX2=list.map(function(n){
+        return n*2;});
+        adicTexto("Valores dobrados: "+lstX2.join(', '),"e3");
+    }dobro(lst);
+
+    function imp(list){
+        let e=list.filter(function(pos){return pos%2==0;});
+        adicTexto("Valores pares: "+e.join(', '),"e3");
+    }imp(lst);
+
+    function soma(list){
+        let s=0;
+        s=list.reduce(function(s,n){return s+n;});
+        adicTexto("Soma dos valores: "+s,"e3");
+    }soma(lst);
+
+</script>
+</html>
