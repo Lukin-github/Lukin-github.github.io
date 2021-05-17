@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora + Operador</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=DotGothic16&family=Jura:wght@300&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#botao").click(function(){
+                let n1= $("#valor1").val();
+                let n2= $("#valor2").val();
+                let opr=$("#operacao").val();
+                $("#resultado").text("Resultado: "+calculo(n1,n2,opr));
+            })
+            function calculo(val1,val2,op){
+                val1=parseFloat(val1);
+                val2=parseFloat(val2);
+                switch(op){
+                    case "Soma": return val1+val2; break;
+                    case "Subtração": return val1-val2; break;
+                    case "Multiplicação": return val1*val2; break;
+                    case "Divisão": return val1/val2; break;
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+    <h1>1: Monte uma calculadora que receba dois valores numéricos e um operador aritmético. Sua calculadora deve realizar as seguintes operações: somar, subtrair, multiplicar e dividir.</h1><br>
+        <input type="number" id="valor1" placeholder="Valor 1">
+        <input type="number" id="valor2" placeholder="Valor 2">
+        <select id="operacao">
+            <option>Soma</option>
+            <option>Subtração</option>
+            <option>Multiplicação</option>
+            <option>Divisão</option>
+        </select>
+        <button type="button" id="botao">Ir!</button>
+        <p id="resultado"></p>
+</body>
+</html>

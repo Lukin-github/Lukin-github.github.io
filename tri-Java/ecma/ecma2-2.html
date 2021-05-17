@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Imposto de Renda</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=DotGothic16&family=Jura:wght@300&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#botao").click(function(){
+                let sal=$("#salario").val();
+                let res=imposto(sal);
+                console.log(res);
+                if(res=="Não há taxas!")
+                    $("#resultado").text("Resultado: Não há taxas!");
+                else
+                    $("#resultado").text("Resultado: R$"+res.toFixed(2)+".");
+            })
+            function imposto(sal){
+                sal=parseFloat(sal);
+                if(sal<=1903.99)
+                    return "Não há taxas!";
+                else if(sal>1903.99&&sal<=2826.65)
+                        return (sal*0.075)-142.80;
+                    else if(sal>2826.65&&sal<=3751.05)
+                            return (sal*0.15)-354.80;
+                        else if(sal>3751.05&&sal<=4664.68)
+                                return (sal*0.225)-636.13;
+                            else if(sal>4664.68)
+                                    return (sal*0.275)-869.36;
+            }
+        })
+    </script>
+</head>
+<body>
+    <h1>2: Faça um programa que realize o cálculo do imposto de renda de acordo com o salário mensal, baseado nas alíquotas da Tabela</h1><br>
+    <input type="text" id="salario" placeholder="Salário">
+    <button type="button" id="botao">Ir!</button>
+    <p id="resultado"></p>
+</body>
+</html>

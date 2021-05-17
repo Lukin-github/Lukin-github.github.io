@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Criptografia</title>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=DotGothic16&family=Jura:wght@300&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(function(){
+                $("#botao").click(function(){
+                let letras=$("#letras").val();
+                let rot=$("#rotacoes").val();
+                rot=parseInt(rot);
+                $("#resultado").text(criptografia(letras,rot));
+            })
+            function criptografia (letras, rot){
+                let arrayLetras=letras.split(''); 
+                let arrayTodasAsLetras=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+                let compLetras=arrayLetras.length;
+                let compAlfabeto=arrayTodasAsLetras.length;
+
+                for(let i=0;i<compLetras;i++){
+                    var auxiliar2=arrayLetras[i];
+                    for(let j=0;j<compAlfabeto;j++){
+                        if(arrayTodasAsLetras[j]==auxiliar2)
+                            if((j+rot)>compAlfabeto){
+                                var auxiliar1=j+rot-compAlfabeto;
+                                arrayLetras[i]=arrayTodasAsLetras[auxiliar1];
+                            }
+                            else if((j+rot)==compAlfabeto)
+                                    arrayLetras[i]=arrayTodasAsLetras[0];
+                                else
+                                    arrayLetras[i]=arrayTodasAsLetras[j+rot];
+                    }
+                }
+                let novaString=arrayLetras.join('');
+                return novaString;
+            }
+        })
+    </script>
+</head>
+<body>
+    <h1>A Cifra de Rotação é uma técnica de criptografia que faz uma transposição de um caractere por outro. Para compreender como ele funciona veja este mapeamento de transposição onde não há rotação:</h1>
+    <h4>ENTRADA ==> A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>SAÍDA ==> A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</h4>
+    <h1>Basicamente, o caractere de entrada é o mesmo de saída, ou seja, o caractere A será substituído por A. Contudo, se for aplicado a rotação de três posições na saída o resultado será:</h1>
+    <h4>ENTRADA ==> A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>SAÍDA ==> X Y Z A B C D E F G H I J K L M N O P Q R S T U V W</h4>
+    <h1>Implemente um script que faça isso.</h1>
+    <input type="text" id="letras" placeholder="Sequência de letras">
+    <input type="text" id="rotacoes" placeholder="Quantidade de rotações">
+    <button type="button" id="botao">Executar</button>
+    <p id="resultado"></p>
+</body>
+</html>

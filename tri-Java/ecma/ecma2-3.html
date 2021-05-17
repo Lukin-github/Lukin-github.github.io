@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Verificação de Triângulos</title>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=DotGothic16&family=Jura:wght@300&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#botao").click(function(){
+                let l1=$("#lado-1").val();
+                let l2=$("#lado-2").val();
+                let l3=$("#lado-3").val();
+                if(l1<=0||l2<=0||l3<=0)
+                    $("#resultado").text("Insira qualquer valor maior que 0 e não-negativo nos campos:");
+                else
+                    $("#resultado").text(triangulo(l1,l2,l3));
+            })
+            function triangulo(l1,l2,l3){
+                l1=parseFloat(l1);
+                l2=parseFloat(l2);
+                l3=parseFloat(l3);
+                if(condicao(l1,l2,l3)==true)
+                    return classf(l1,l2,l3);
+                return "Tal triângulo é inexistente.";
+            }
+            
+            function classf(l1,l2,l3){
+                if(l1==l2&&l1==l3&&l2==l3)
+                return "É equilateral.";
+                else if(l1==l2&&l1!=l3||l2==l3&&l2!=l1||l3==l1&&l3!=l2)
+                return "É isóceles.";
+                else if(l1!=l2&&l1!=l3&&l3!=l2)
+                return "É escaleno.";
+            }
+            
+            function tornaMod(num){
+                if(num<0)
+                num=num*(-1);
+                return num;
+            }
+
+            function condicao(l1,l2,l3){
+                if(tornaMod(l2-l3)<l1&&l1<(l2+l3)||tornaMod(l1-l3)<l2&&l2<(l1+l3)||tornaMod(l1-l2)<l3&&l3<(l1+l2))
+                    return true;
+                return false;
+            }
+        })
+        </script>
+</head>
+<body>
+    <h1>3: O triângulo é uma figura que possui três lados, e dependendo dos valores dos lados sua classificação pode ser equilátero,isósceles e escaleno dependendo se a quantidade de lados iguais forem respectivamente três, dois e nenhum. Contudo, nem toda junção de três tamanhos formam um triângulo válido, por exemplo, os lados 0, 0, 0. Faça um script que verifique as medidas e informe a classificação do triângulo.</h1><br>
+    <input type="text" id="lado-1" placeholder="1° lado">
+    <input type="text" id="lado-2" placeholder="2° lado">
+    <input type="text" id="lado-3" placeholder="3° lado">
+    <button type="button" id="botao">Ir!</button>
+    <p id="resultado"></p>
+</body>
+</html>
