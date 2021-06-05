@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Concentração</title>
+	<meta charset="utf-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script>
+        $(function(){$("#botao").click(function(){
+            let soluto=$("#soluto").val();
+            let solucao=$("#solucao").val();
+            soluto=parseFloat(soluto);
+            solucao=parseFloat(solucao);
+
+            let transGpM=soluto/53.5;
+            let conM=transGpM/solucao;
+            let resTrans=soluto*53.5;
+            let a=(soluto/solucao)*conM;
+            
+            transGpM=transGpM.toFixed(2);
+            conM=conM.toFixed(2);
+            resTrans=resTrans.toFixed(2);
+            
+            $("#resultado").html(soluto+"g="+transGpM+"mol<br>Concentração="+transGpM+"mol/"+solucao+"L<br>Concentração="+conM+"mol/L ou "+a+"g/L");
+        })})
+    </script>
+</head>
+<body>
+    <h1>Cálculo de concentração</h1>
+    <h2>Cloreto de amônio</h2>
+    <form>
+        <input type="number" id="soluto" placeholder="Quantidade de NH4Cl em gramas: "><br>
+        <input type="number" id="solucao" placeholder="Quantidade de solução em litros: "><br>
+        <button type="button" id="botao">Calcular</button>
+    </form>
+    <p id="resultado"></p>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Classificação</title>
+	<meta charset="utf-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script>
+        $(function(){
+        $("#botao").click(function(){
+            let soluto=$("#soluto").val();
+            let solvente=$("#solvente").val();
+            soluto=parseFloat(soluto);
+            solvente=parseFloat(solvente);
+            let con=60*solvente;
+            if(con>soluto)
+                $("#resultado").html("Saturada: 1L álcool para cada 60g NH4Cl<br>Você forneceu: "+soluto+"g, configurando uma solução insaturada.");
+            if(con<soluto)
+                $("#resultado").html("Saturada: 1L álcool para cada 60g NH4Cl<br>Você forneceu: "+soluto+"g, configurando uma solução supersaturada.");
+            if(con==soluto)
+                $("#resultado").html("Saturada: 1L álcool para cada 60g NH4Cl<br>Você forneceu: "+soluto+"g, configurando uma solução saturada.");
+        })
+    })
+    </script>
+</head>
+<body>
+    <h1>Classificação de soluções:</h1>
+    <h2>--> Álcool + Cloreto de amônio</h2>
+    <form>
+        <input type="number" id="soluto" placeholder="Quantidade de NH4Cl em gramas: "><br>
+        <input type="number" id="solvente" placeholder="Quantidade de álcool (litros): "><br>
+        <button type="button" id="botao">Calcular</button>
+    </form>
+    <p id="resultado"></p>
+</body>
+</html>
